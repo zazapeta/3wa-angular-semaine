@@ -39,6 +39,7 @@ class AddUser
     }
 
     get getLength() {return this.mTabUser.length;}
+    get getTabUser() {return this.mTabUser;}
 }
 
 function case1()
@@ -49,16 +50,16 @@ function case1()
         id:1,
         status:"Zzz"
     }
-
+    let _fakeTab :User[] = [];
+    _fakeTab.push(_firstUser);
     let _add = new AddUser();
     _add.Add(_firstUser);
-    let _result = 1;
 
-    if(_result != _add.getLength)
+    if(!_fakeTab.every((value,index) => value === _add.getTabUser[index]))
     {
-        throw new Error(`Le résultat attendu et ${_result} mais on obtiens ${_add.getLength}`);
+        throw new Error(`Nous obtenons pas le même tableau`);
     }
-    else console.log(`Le résultat attendu et ${_result} et on obtiens ${_add.getLength}`);
+    else console.log(`nous obtenons le même tableau`);
 }
 
 function case2()
@@ -75,7 +76,10 @@ function case2()
         id:3,
         status:"Zzz"
     }
-    let _result = 2;
+
+    let _fakeTab :User[] = [];
+    _fakeTab.push(_secondUser);
+    _fakeTab.push(_thirdUser);
     let _add = new AddUser();
 
     try
@@ -89,11 +93,11 @@ function case2()
         console.error(e);
     }
 
-    if(_result != _add.getLength)
+    if(!_fakeTab.every((value,index) => value === _add.getTabUser[index]))
     {
-        throw new Error(`Le résultat attendu et ${_result} mais on obtiens ${_add.getLength}`);
+        throw new Error(`Nous obtenons pas le même tableau`);
     }
-    else console.log(`Le résultat attendu et ${_result} et on obtiens ${_add.getLength}`);
+    else console.log(`Nous obtenons le même tableau`);
 }
 
 function main()
