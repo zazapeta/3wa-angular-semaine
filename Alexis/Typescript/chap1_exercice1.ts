@@ -1,8 +1,8 @@
-function showStatus(_user :User) : boolean
+function showStatus(_user :User) : string
 {
     if(_user.status)
-        return true;
-    else return false;
+        return `Yes, this user have status : ${_user.status}`;
+    else return "This user does not have status";
 }
 
 interface User 
@@ -19,8 +19,7 @@ function case1()
         name:"Alexis",
         id:1
     }
-    if(showStatus(_firstUser)) console.log(`Yes, this user have status : ${_firstUser.status}`);
-    else console.log("This user does not have status");
+    console.log(showStatus(_firstUser));
 }
 
 function case2()
@@ -32,8 +31,7 @@ function case2()
         id:2,
         status:"Zzz"
     }
-    if(showStatus(_secondUser)) console.log(`Yes, this user have status : ${_secondUser.status}`);
-    else console.log("This user does not have status");
+    console.log(showStatus(_secondUser));
 }
 
 function main()
