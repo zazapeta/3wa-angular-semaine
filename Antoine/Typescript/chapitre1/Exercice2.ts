@@ -34,8 +34,12 @@ function case1() {
 
     const addUser = new AddUser();
     let allUser = [];
-    addUser.add(allUser, u1)
-    addUser.add(allUser, u2)
+    try {
+        addUser.add(allUser, u1)
+        addUser.add(allUser, u2)
+    } catch (e) {
+        console.error(e);
+    }
 
     if (allUser.length != 2) {
         throw new Error(`Le longueur du tableau attendu est 2 mais nous avons ${allUser.length}`);
@@ -60,12 +64,15 @@ function case2() {
         id: 2
     }
 
-
     const addUser = new AddUser();
     let allUser = [];
-    addUser.add(allUser, u1)
-    addUser.add(allUser, u2)
-    addUser.add(allUser, u3)
+    try {
+        addUser.add(allUser, u1)
+        addUser.add(allUser, u2)
+        addUser.add(allUser, u3)
+    } catch (e) {
+        console.error(e);
+    }
 
     if (allUser.length != 2) {
         throw new Error(`Le longueur du tableau attendu est 2 mais nous avons ${allUser.length}`);
@@ -73,8 +80,6 @@ function case2() {
         console.log(`Parfait ! :) Notre résultat ${allUser.length} est bien celui que nous voulions, les 2 users sont bien dans le tableau et pas notre 3e user ! `)
     }
 }
-
-
 
 function main() {
     try {
