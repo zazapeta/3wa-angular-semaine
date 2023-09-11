@@ -12,7 +12,7 @@ class AddUser {
         return this.users.find((user) => user.id === user.id);
     }
 
-    add(user: User) {
+    add(user: User): void {
         if(this.userExist(user)) {
             throw new Error("User already exist");
         } else {
@@ -34,9 +34,13 @@ const user2: User = {
     }
 
 function case1() {
-    const expectedResult = [user1,user2];
-    const newUsr = new AddUser()
-    const result = newUsr.add(user1)
+    const newUsr = new AddUser();
+    const expectedResult: User[] = [user1];
+    const result = newUsr.add(user1);
+
+    if(expectedResult !== result) {
+        
+    }
 }
 
 function main() {
