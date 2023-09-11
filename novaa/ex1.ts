@@ -24,5 +24,34 @@ id:1
   }
 
 
-  console.log(showStatus(user1))
-  console.log(showStatus(user2))
+  const resultat1 = showStatus(user1);
+  const attendu1 = user1.status;
+  const resultat2 = showStatus(user2);
+  const attendu2 = "Il n'y a pas de status";
+
+function case1() {
+  if (resultat1 === attendu1) {
+    console.log("Cas 1:Résultat attendu:", attendu1);
+    console.log("Résultat obtenu:", resultat1);
+    console.log("Le résultat est celui attendu.");
+  } else {
+    console.log("Cas 1:Résultat attendu:", attendu1);
+    console.log("Résultat obtenu:", resultat1);
+    console.log("Le résultat n'est pas celui attendu.");
+  }
+}
+
+function case2() {
+  if (resultat2 === attendu2) {
+    console.log("Cas 2:Résultat attendu:", attendu2);
+    console.log("Résultat obtenu:", resultat2);
+    console.log("Le résultat est celui attendu.");
+  } else {
+    console.log("Cas 2:Résultat attendu:", attendu2);
+    console.log("Résultat obtenu:", resultat2);
+    console.log("Le résultat n'est pas celui attendu.");
+  }
+}
+
+  case1();
+  case2()
