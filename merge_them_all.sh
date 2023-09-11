@@ -1,4 +1,3 @@
-$branches = [];
 #!/bin/bash
 
 # Tableau contenant les noms des branches à fusionner
