@@ -1,1 +1,14 @@
-<p>patrie-details works!</p>
+<div class="card">
+    <img src="{{pastrie.url}}" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{pastrie.ref}}</h5>
+        <p class="card-text">Nom : {{pastrie.name}}</p>
+        <a href="#" class="btn btn-primary" (click)="setDescriptionButton()">{{mDescButton}}</a>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">Liste d'ingrédient</div>
+    <ul  *ngIf="getIngredient(pastrie.id)" class="list-group list-group-flush">
+        <li *ngFor="let ingredient of getIngredient(pastrie.id)" class="list-group-item">{{ingredient}}</li>
+    </ul>
+</div>

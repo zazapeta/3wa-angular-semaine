@@ -22,3 +22,16 @@ export class Pastrie
         this.choice = false;
     }
 }
+
+
+export class List
+{
+  id:string;
+  list:string[];
+
+  constructor()
+  {
+    this.id ="";
+    this.list = [];
+  }
+}

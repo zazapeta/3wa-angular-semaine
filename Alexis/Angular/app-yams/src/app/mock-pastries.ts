@@ -1,4 +1,4 @@
-import { Pastrie } from './pastrie';
+import { Pastrie, List } from './pastrie';
 
 export const PASTRIES: Pastrie[] = [
     {
@@ -130,7 +130,7 @@ export const PASTRIES: Pastrie[] = [
 ];
 
 // Pensez à définir la classe List pour définir la liste des ingrédients des pâtisseries ci-dessous :
-/*export const INGREDIENTS_LISTS: List[]  = [
+export const INGREDIENTS_LISTS: List[]  = [
     {
       "id": "1",
       "list": [
@@ -212,4 +212,4 @@ export const PASTRIES: Pastrie[] = [
   ];
 
 export const Max : number = 3 ;
-export let Count : number = 0 ;*/
+export let Count : number = 0 ;
