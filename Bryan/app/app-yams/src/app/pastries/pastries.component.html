@@ -1,8 +1,28 @@
 <h1>{{ titlePage }}</h1>
 
-<ul *ngIf="pastries" class="list-inline">
-    <li class="list-inline-item" *ngFor="let pastrie of pastries">
-        <span class="badge badge-info">{{ pastrie.id }}</span> {{ pastrie.name }}, like: {{ pastrie.like}}, tags: {{ pastrie.tags }}
-    </li>
-</ul>
-<p>pastries works!</p>
+
+
+
+
+      
+
+<div *ngIf="pastries">
+<div *ngFor="let pastrie of pastries" class="card ml-1 my-2">
+    <div class="card-header">
+        Pâtisserie
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ pastrie.name }}</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime porro dolores quasi eaque dicta beatae eveniet vitae ipsum exercitationem similique rem, veniam sed obcaecati, iure voluptate voluptas deserunt! Quibusdam minus</p>
+        <ul *ngIf="pastrie.tags && pastrie.tags.length > 0">
+            <li *ngFor="let tag of pastrie.tags" 
+            class="badge bg-info m-1 p-1">{{ tag }}</li>
+        </ul>
+      <div>
+        <a href="#"></a> ♥ {{ pastrie.like }} ►► {{ pastrie.order }} unités disponibles
+     </div>
+    </div>
+  </div>
+</div>
+
+
