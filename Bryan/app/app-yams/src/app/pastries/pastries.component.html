@@ -4,10 +4,10 @@
 
 
 
-      
+<!-- (click)="OnSelect()" -->
 
 <div *ngIf="pastries">
-<div *ngFor="let pastrie of pastries" class="card ml-1 my-2">
+  <div (click)="OnSelect(pastrie)" *ngFor="let pastrie of pastries" class="card ml-1 my-2">
     <div class="card-header">
         Pâtisserie
     </div>
@@ -21,6 +21,7 @@
       <div>
         <a href="#"></a> ♥ {{ pastrie.like }} ►► {{ pastrie.order }} unités disponibles
      </div>
+     <button type="button" class="btn btn-primary">Détails</button>
     </div>
   </div>
 </div>
