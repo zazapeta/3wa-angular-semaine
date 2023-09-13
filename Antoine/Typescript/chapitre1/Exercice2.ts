@@ -22,6 +22,19 @@ class AddUser {
 }
 
 function case1() {
+    const resultatAttendu = [
+        {
+            name: "Antoine",
+            id: 1
+        },
+        {
+            name: "Sarah",
+            id: 2,
+            status: "Marche"
+        }
+    ];
+
+
     const u1: User = {
         name: "Antoine",
         id: 1
@@ -41,14 +54,26 @@ function case1() {
         console.error(e);
     }
 
-    if (allUser.length != 2) {
-        throw new Error(`Le longueur du tableau attendu est 2 mais nous avons ${allUser.length}`);
+    if (allUser[0] != resultatAttendu[0] || allUser[1] != resultatAttendu[1]) {
+        throw new Error(`Le tableau contenant les 2 users attendu n'est le bon`);
     } else {
-        console.log(`Parfait ! :) Notre résultat ${allUser.length} est bien celui que nous voulions, les 2 users sont bien dans le tableau ! `)
+        console.log(`Le tableau attendu est le bon, les 2 users ont bien été ajouter ! `)
     }
 }
 
 function case2() {
+    const resultatAttendu = [
+        {
+            name: "Antoine",
+            id: 1
+        },
+        {
+            name: "Sarah",
+            id: 2,
+            status: "Marche"
+        }
+    ];
+
     const u1: User = {
         name: "Antoine",
         id: 1
@@ -74,10 +99,10 @@ function case2() {
         console.error(e);
     }
 
-    if (allUser.length != 2) {
-        throw new Error(`Le longueur du tableau attendu est 2 mais nous avons ${allUser.length}`);
+    if (allUser[0] != resultatAttendu[0] || allUser[1] != resultatAttendu[1]) {
+        throw new Error(`Le tableau contenant les 2 users attendu n'est le bon`);
     } else {
-        console.log(`Parfait ! :) Notre résultat ${allUser.length} est bien celui que nous voulions, les 2 users sont bien dans le tableau et pas notre 3e user ! `)
+        console.log(`Le tableau attendu est le bon, les 2 users ont bien été ajouter ! `)
     }
 }
 

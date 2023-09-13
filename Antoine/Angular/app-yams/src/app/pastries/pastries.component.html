@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-8">
+        <h1>{{ titlePage }}</h1>
+        <ul *ngIf="pastries" class="list-inline">
+            <li class="list-inline-item" *ngFor="let pastrie of pastries">
+                <div class="card" data-id="{{ pastrie.id }}">
+                    <div class="card-header">
+                        <h6 class="card-title">{{ pastrie.ref }}</h6>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-subtitle mb-2 text-body-secondary">{{ pastrie.name }}</h5>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                            deserunt
+                            veniam voluptas maxime, at praesentium natus id esse optio totam aperiam dicta est omnis
+                            laudantium corporis a voluptatem blanditiis! Repellendus saepe non possimus totam quam!
+                            Laborum quidem, facere aut nemo unde sunt molestias aspernatur, illum vel modi esse cum
+                            nam!
+                        </p>
+                        <ul *ngIf="pastrie.tags" class="list-inline">
+                            <li class="list-inline-item" *ngFor="let tag of pastrie.tags">
+                                <span class="badge text-bg-info">{{tag}}</span>
+                            </li>
+                        </ul>
+                        <p class="card-text like">
+                            <img src="assets/svg/si-glyph-heart.svg" alt="Mon SVG" style="width: 12px;">
+                            <span> {{pastrie.like}} </span>
+                            <img src="assets/svg/si-glyph-triangle-double-arrow-right.svg" alt="Mon SVG"
+                                style="width: 10px;">
+                            <span> {{pastrie.quantity}} unités disponibles </span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
