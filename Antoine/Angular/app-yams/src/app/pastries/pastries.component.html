@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-md-4">
-
+        <!-- PastrieDetails communication parent vers enfant -->
+        <app-pastries-details [attr.pastrie]="selectedPastrie"></app-pastries-details>
     </div>
     <div class="col-md-8">
         <h1>{{ titlePage }}</h1>
@@ -12,6 +13,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-subtitle mb-2 text-body-secondary">{{ pastrie.name }}</h5>
+                        <a href="#" class="btn btn-primary" (click)="onSelect(pastrie)">Sélectionner</a>
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
                             deserunt
                             veniam voluptas maxime, at praesentium natus id esse optio totam aperiam dicta est omnis
