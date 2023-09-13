@@ -1,0 +1,8 @@
+<h1>{{ titlePage }}</h1>
+
+<ul *ngIf="pastries" class="list-inline">
+    <li class="list-inline-item" *ngFor="let pastrie of pastries">
+        <span class="badge badge-info">{{ pastrie.id }}</span> {{ pastrie.name }}, like: {{ pastrie.like}}, tags: {{ pastrie.tags }}
+    </li>
+</ul>
+<p>pastries works!</p>
