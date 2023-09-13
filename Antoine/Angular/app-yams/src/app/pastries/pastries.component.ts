@@ -10,16 +10,16 @@ import { PASTRIES } from '../mock-pastries';
 export class PastriesComponent {
   titlePage: string = "Page principale : liste des pâtisseries à gagner";
   pastries: Pastrie[] = PASTRIES;
-  selectedPastrie: Pastrie[] = [];
+  selectedPastrie: Pastrie = new Pastrie();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSelect(pastrie: any) {
+  onSelect(pastrie: Pastrie) {
+    console.log(pastrie)
     this.selectedPastrie = pastrie;
-    console.log(pastrie);
   }
 
 }
