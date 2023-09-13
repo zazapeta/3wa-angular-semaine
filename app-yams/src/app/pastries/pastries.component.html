@@ -1,8 +1,25 @@
 <h1>{{ titlePage}}</h1>
-<div>
-<ul *ngIf="pastries" class="list-inline">
-    <li class="list-inline-item" *ngFor="let pastrie of pastries">
-        <span class="badge badge-info">{{ pastrie.id }}</span> {{ pastrie.name }}
-    </li>
-</ul>
+<div class="col-sm-8 pastrie">
+    <section *ngIf="pastries.length > 0">
+        <article *ngFor="let pastrie of pastries" class="card">
+            <header class="card-header">
+                <h2>{{ pastrie.ref }}</h2>
+            </header>
+            <section class="card-body">
+                <h5 class="card-title">{{ pastrie.name }}</h5>
+                <p class="card-text">{{ pastrie.description }}</p>
+                <ul class="d-flex list-unstyled" *ngIf="pastrie.tags && pastrie.tags.length > 0">
+                    <li class="bg-info text-light m-3 p-2 rounded" *ngFor="let tag of pastrie.tags">
+                        {{ tag }}
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary"> Fr </a>
+                <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
+                <small>{{ pastrie.like }}</small>
+                <img class="glyph-icon" src="./assets/svg/si-glyph-triangle-double-arrow-right.svg" />
+                <small>{{ pastrie.quantity }} {{ pastrie.quantity > 2 ? 'unités disponbiles' : 'unité disponbile'}}
+                </small>
+            </section>
+        </article>
+    </section>
 </div>
