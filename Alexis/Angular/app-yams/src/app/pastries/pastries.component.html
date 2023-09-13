@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        <h1>{{titlePage}}</h1>
+        <ul  *ngIf="patries" class="list-inline">
+            <li class="list-inline-item" *ngFor="let pastrie of patries">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>{{pastrie.ref}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{pastrie.name}}</h5>
+                        <p class="card-text">{{pastrie.description}}</p>
+                        <ul  class="list-inline" *ngIf="pastrie.tags">
+                            <li  class="list-inline-item" *ngFor="let test of pastrie.tags">
+                                <span class="badge text-bg-primary">{{test}}</span>
+                            </li>
+                        </ul>
+                        <p>
+                            <img class="icon" src="../../assets/svg/si-glyph-heart.svg"/>
+                            <span> {{pastrie.like}} </span>
+                            <img class="icon" src="../../assets/svg/si-glyph-triangle-double-arrow-right.svg"/>
+                            <small> {{pastrie.quantity}} unité disponible</small>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+//Pour faire marcher MAP npm install @types/node
+
 function RandomGroup(_array :number[],_max:number) :Map<number,number[]>
 {
     let _group = new Map<number,number[]>();
