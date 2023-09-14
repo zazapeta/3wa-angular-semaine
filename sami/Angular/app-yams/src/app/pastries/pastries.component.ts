@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pastries.component.scss']
 })
 export class PastriesComponent {
-
+  titlePage: string = "Page principale : liste des pâtisseries à gagner";
 }
