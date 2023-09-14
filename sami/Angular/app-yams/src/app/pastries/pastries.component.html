@@ -41,7 +41,8 @@
         <div class="card-footer text-body-secondary">
           <span
             *ngFor="let tag of pastrie?.tags"
-            class="badge rounded-pill text-bg-info"
+            class="badge rounded-pill text-primary"
+            [style.backgroundColor]="tag | pastryTagColor"
             >{{ tag }}</span
           >
         </div>

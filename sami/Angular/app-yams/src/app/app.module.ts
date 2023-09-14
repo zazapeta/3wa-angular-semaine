@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PastriesComponent } from './pastries/pastries.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { PastrieDetailsComponent } from './pastrie-details/pastrie-details.component';
+import { PastryTagColorPipe } from './pastry-tag-color.pipe';
 /**
  *     
  * "/" -> Index, HomePage
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     PastriesComponent,
     ToolbarComponent,
     PastrieDetailsComponent,
+    PastryTagColorPipe,
   ],
   imports: [
     BrowserModule,
