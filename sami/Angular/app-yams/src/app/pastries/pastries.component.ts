@@ -6,9 +6,14 @@ import { PASTRIES } from '../pastries-mock';
 @Component({
   selector: 'app-pastries',
   templateUrl: './pastries.component.html',
-  styleUrls: ['./pastries.component.scss']
+  styleUrls: ['./pastries.component.scss'],
 })
 export class PastriesComponent {
-  titlePage: string = "Page principale : liste des pâtisseries à gagner";
+  titlePage: string = 'Page principale : liste des pâtisseries à gagner';
   pastries: Pastrie[] = PASTRIES;
+  selectedPastrie!: Pastrie;
+
+  onSelect(pastrie: Pastrie) {
+    this.selectedPastrie = pastrie;
+  }
 }

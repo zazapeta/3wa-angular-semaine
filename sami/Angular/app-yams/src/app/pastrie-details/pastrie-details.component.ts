@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Pastrie } from '../pastrie';
 
 @Component({
   selector: 'app-pastrie-details',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pastrie-details.component.scss']
 })
 export class PastrieDetailsComponent {
-  
+  @Input() pastrie!: Pastrie;
 }
