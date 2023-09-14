@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { Pastrie } from '../pastrie';
+import { PASTRIES } from '../pastries-mock';
+
 @Component({
   selector: 'app-pastries',
   templateUrl: './pastries.component.html',
@@ -7,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class PastriesComponent {
   titlePage: string = "Page principale : liste des pâtisseries à gagner";
+  pastries: Pastrie[] = PASTRIES;
 }

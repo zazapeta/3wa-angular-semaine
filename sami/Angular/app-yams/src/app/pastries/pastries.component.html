@@ -1,14 +1,35 @@
-<style>
-
-  p{
-    height: 80px;
-    width: 100%;
-    background-color: red;
-    opacity: 0.5;
-    color: blue;
-    margin: 40px;
-  }
-</style>
-<h1>{{titlePage}}</h1>
+<h1>{{ titlePage }}</h1>
 <p>pastries works!</p>
+
+<div *ngIf="pastries" class="d-flex flex-column w-50">
+  <div class="card m-2" *ngFor="let pastrie of pastries" style="width: 18rem">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-header">
+      Il en reste
+      <span
+        *ngIf="pastrie?.quantity"
+        class="badge rounded-pill text-bg-danger"
+        >{{ pastrie.quantity }}</span
+      >
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ pastrie.name }}
+        <span *ngIf="pastrie?.like" class="badge rounded-pill text-bg-danger">{{
+          pastrie.like
+        }}</span>
+      </h5>
+      <p class="card-text">{{ pastrie.description }}</p>
+      <a href="{{ pastrie.url }}" class="btn btn-primary">GO TO</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+      <span
+        *ngFor="let tag of pastrie?.tags"
+        class="badge rounded-pill text-bg-info"
+        >{{ tag }}</span
+      >
+    </div>
+  </div>
+</div>
+
 <app-pastrie-details />
