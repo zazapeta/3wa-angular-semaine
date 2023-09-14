@@ -3,7 +3,11 @@
   <div class="card-body">
     <h5 class="card-title">{{ pastrie.name }}</h5>
     <p class="card-text">{{ pastrie.description }}</p>
-    <a href="#" class="btn btn-primary">Desc >>></a>
+    <div *ngSwitch="pastrie.id">
+      <button *ngSwitchCase="ORDERS.desc" class="btn btn-secondary" (click)="toggleOrder()">Asc >>></button>
+      <button *ngSwitchCase="ORDERS.asc" class="btn btn-secondary" (click)="toggleOrder()">Desc >>></button>
+      <button *ngSwitchDefault class="btn btn-primary" (click)="toggleOrder()">Desc >>></button>
+    </div>
   </div>
   <div class="card-footer">
     <ul class="list-group">
