@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PastriesComponent } from './pastries/pastries.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { PastrieDetailsComponent } from './pastrie-details/pastrie-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PastriesComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    PastrieDetailsComponent
   ],
   imports: [
     BrowserModule
