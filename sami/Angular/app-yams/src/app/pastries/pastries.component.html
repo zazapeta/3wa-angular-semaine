@@ -1,39 +1,49 @@
-<div class="col">
-  <app-pastrie-details [pastrie]="selectedPastrie" [ingredients]="getIngredients(selectedPastrie)" />
-</div>
-<div class="col" style="height: 500px;overflow: scroll;">
-  <h1>{{ titlePage }}</h1>
-  <p>pastries works!</p>
+<div class="row">
+  <div class="col">
+    <app-pastrie-details
+      *ngIf="selectedPastrie"
+      [pastrie]="selectedPastrie"
+      [ingredients]="getIngredients(selectedPastrie)"
+    />
+  </div>
+  <div class="col" style="height: 500px; overflow: scroll">
+    <h1>{{ titlePage }}</h1>
+    <p>pastries works!</p>
 
-  <div *ngIf="pastries" class="d-flex flex-column">
-    <div class="card m-2" *ngFor="let pastrie of pastries">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-header">
-        Il en reste
-        <span
-          *ngIf="pastrie?.quantity"
-          class="badge rounded-pill text-bg-danger"
-          >{{ pastrie.quantity }}</span
-        >
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">
-          {{ pastrie.name }}
+    <div *ngIf="pastries" class="d-flex flex-column">
+      <div class="card m-2" *ngFor="let pastrie of pastries">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-header">
+          Il en reste
           <span
-          *ngIf="pastrie?.like"
-          class="badge rounded-pill text-bg-danger"
-          >{{ pastrie.like }}</span
+            *ngIf="pastrie?.quantity"
+            class="badge rounded-pill text-bg-danger"
+            >{{ pastrie.quantity }}</span
           >
-        </h5>
-        <button class="btn btn-primary" (click)="onSelect(pastrie)" >Sélectionner</button>
-        <p class="card-text">{{ pastrie.description }}</p>
-      </div>
-      <div class="card-footer text-body-secondary">
-        <span
-          *ngFor="let tag of pastrie?.tags"
-          class="badge rounded-pill text-bg-info"
-          >{{ tag }}</span
-        >
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ pastrie.name }}
+            <span
+              *ngIf="pastrie?.like"
+              class="badge rounded-pill text-bg-danger"
+              >{{ pastrie.like }}</span
+            >
+          </h5>
+          <a
+            routerLink="/pastries/{{ pastrie.id }}/read"
+            class="btn btn-primary"
+            >Sélectionner</a
+          >
+          <p class="card-text">{{ pastrie.description }}</p>
+        </div>
+        <div class="card-footer text-body-secondary">
+          <span
+            *ngFor="let tag of pastrie?.tags"
+            class="badge rounded-pill text-bg-info"
+            >{{ tag }}</span
+          >
+        </div>
       </div>
     </div>
   </div>
