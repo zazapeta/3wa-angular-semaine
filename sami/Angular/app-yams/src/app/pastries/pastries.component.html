@@ -7,7 +7,7 @@
   <p>pastries works!</p>
 
   <div *ngIf="pastries" class="d-flex flex-column">
-    <div class="card m-2" *ngFor="let pastrie of pastries" style="width: 18rem">
+    <div class="card m-2" *ngFor="let pastrie of pastries">
       <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-header">
         Il en reste
@@ -21,13 +21,13 @@
         <h5 class="card-title">
           {{ pastrie.name }}
           <span
-            *ngIf="pastrie?.like"
-            class="badge rounded-pill text-bg-danger"
-            >{{ pastrie.like }}</span
+          *ngIf="pastrie?.like"
+          class="badge rounded-pill text-bg-danger"
+          >{{ pastrie.like }}</span
           >
         </h5>
+        <a href="{{ pastrie.url }}" class="btn btn-primary">Sélectionner</a>
         <p class="card-text">{{ pastrie.description }}</p>
-        <a href="{{ pastrie.url }}" class="btn btn-primary">GO TO</a>
       </div>
       <div class="card-footer text-body-secondary">
         <span
