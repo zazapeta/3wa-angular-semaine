@@ -8,6 +8,7 @@
       <a *ngSwitchCase="'asc'" [queryParams]="{ order: 'desc' }" routerLink="./"  class="btn btn-secondary" >Desc >>></a>
       <a *ngSwitchDefault [queryParams]="{ order: 'desc' }" routerLink="./"  class="btn btn-danger" >Desc >>></a>
     </div>
+    <a routerLink="/pastries"  class="btn btn-primary">Close X</a>
   </div>
   <div class="card-footer">
     <ul class="list-group">
