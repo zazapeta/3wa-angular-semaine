@@ -1,1 +1,13 @@
-<p>pastrie-details works! {{pastrie?.id}}</p>
+<div *ngIf="pastrie" class="card">
+  <img src="{{ pastrie.url }}" class="card-img-top" alt="{{ pastrie.name }}" />
+  <div class="card-body">
+    <h5 class="card-title">{{ pastrie.name }}</h5>
+    <p class="card-text">{{ pastrie.description }}</p>
+    <a href="#" class="btn btn-primary">Desc >>></a>
+  </div>
+  <div class="card-footer">
+    <ul class="list-group">
+      <li *ngFor="let ingredient of ingredients" class="list-group-item">{{ ingredient }}</li>
+    </ul>
+  </div>
+</div>

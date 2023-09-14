@@ -9,4 +9,6 @@ import { Pastrie } from '../pastrie';
 })
 export class PastrieDetailsComponent {
   @Input() pastrie!: Pastrie;
+  @Input() ingredients!: string[];
 }
+
