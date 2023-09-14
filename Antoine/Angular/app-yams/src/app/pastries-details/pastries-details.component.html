@@ -3,8 +3,11 @@
     <div class="card-body detail">
         <h5 class="card-title">{{pastrie.ref}}</h5>
         <p class="card-text">Nom : {{pastrie.name}}</p>
-        <a href="#" class="btn btn-primary desc" (click)="modifyIngredientsOrder(true)" [hidden]="trier">Desc >></a>
-        <a href="#" class="btn btn-primary asc" (click)="modifyIngredientsOrder(false)" [hidden]="!trier">Asc >></a>
+        <button class="btn btn-primary desc" (click)="modifyIngredientsOrder(true)" [hidden]="trier">Desc
+            >></button>
+        <button class="btn btn-primary asc" (click)="modifyIngredientsOrder(false)" [hidden]="!trier">Asc
+            >></button>
+        <a routerLink="/pastries" class="btn btn-danger position-absolute top-0 end-0 m-2">X</a>
         <div *ngFor="let list of lists">
             <div class="card ingr" style="width: 100%;" *ngIf="list.id == pastrie.id">
                 <div class="card-header">

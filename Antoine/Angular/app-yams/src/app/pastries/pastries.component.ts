@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Pastrie } from '../pastrie';
 import { PASTRIES } from '../mock-pastries';
 
@@ -10,7 +10,14 @@ import { PASTRIES } from '../mock-pastries';
 export class PastriesComponent {
   titlePage: string = "Page principale : liste des pâtisseries à gagner";
   pastries: Pastrie[] = PASTRIES;
-  selectedPastrie: Pastrie = new Pastrie();
+  selectedPastrie?: Pastrie;
+  @Input()
+
+  set pastrieId(selectedPastrieId: string) {
+    this.selectedPastrie = this.pastries.find(
+      ({ id }) => selectedPastrieId === id
+    );
+  }
 
   constructor() { }
 
