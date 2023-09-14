@@ -4,9 +4,9 @@
     <h5 class="card-title">{{ pastrie.name }}</h5>
     <p class="card-text">{{ pastrie.description }}</p>
     <div [ngSwitch]="order">
-      <button *ngSwitchCase="ORDERS.desc" class="btn btn-primary" (click)="toggleOrder()">Asc >>></button>
-      <button *ngSwitchCase="ORDERS.asc" class="btn btn-secondary" (click)="toggleOrder()">Desc >>></button>
-      <button *ngSwitchDefault class="btn btn-danger" (click)="toggleOrder()">Desc >>></button>
+      <a *ngSwitchCase="'desc'" [queryParams]="{ order: 'asc' }" routerLink="./"  class="btn btn-primary">Asc >>></a>
+      <a *ngSwitchCase="'asc'" [queryParams]="{ order: 'desc' }" routerLink="./"  class="btn btn-secondary" >Desc >>></a>
+      <a *ngSwitchDefault [queryParams]="{ order: 'desc' }" routerLink="./"  class="btn btn-danger" >Desc >>></a>
     </div>
   </div>
   <div class="card-footer">
