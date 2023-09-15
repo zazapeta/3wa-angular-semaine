@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-            <app-pastrie-details [pastrie]="selectedPastrie" ></app-pastrie-details>
+            <app-pastrie-details *ngIf="selectedPastrie" [pastrie]="selectedPastrie"></app-pastrie-details>
     </div>
     <div class="col-md-8">
         <h1>{{titlePage}}</h1>
@@ -12,13 +12,17 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{pastrie.name}}</h5>
-                        <button type="button" class="btn btn-primary" (click)="onSelect(pastrie)">Sélectionner</button>
+                        <a routerLink="/pastries/{{pastrie.id}}/read" class="btn btn-primary" >Sélectionner</a>
+                        <!--<button type="button" class="btn btn-primary" (click)="onSelect(pastrie)">Sélectionner</button>-->
                         <p class="card-text">{{pastrie.description}}</p>
-                        <ul  class="list-inline" *ngIf="pastrie.tags">
-                            <li  class="list-inline-item" *ngFor="let test of pastrie.tags">
-                                <span class="badge text-bg-primary">{{test}}</span>
-                            </li>
-                        </ul>
+                        <div class="card-footer text-body-secondary">
+                            <span
+                              *ngFor="let tag of pastrie?.tags"
+                              class="badge rounded-pill"
+                              [style.backgroundColor]="tag | pastryTagColor"
+                              >{{ tag }}</span
+                            >
+                          </div>
                         <p>
                             <img class="icon" src="../../assets/svg/si-glyph-heart.svg"/>
                             <span> {{pastrie.like}} </span>

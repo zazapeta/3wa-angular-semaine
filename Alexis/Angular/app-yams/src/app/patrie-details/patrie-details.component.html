@@ -3,7 +3,8 @@
     <div class="card-body">
         <h5 class="card-title">{{pastrie.ref}}</h5>
         <p class="card-text">Nom : {{pastrie.name}}</p>
-        <a href="#" class="btn btn-primary" (click)="setDescriptionButton()">{{mDescButton}}</a>
+        <button class="btn btn-primary" (click)="setDescriptionButton()">{{mDescButton}}</button>
+        <a routerLink="/pastries" class="btn btn-danger" >Close</a>
     </div>
 </div>
 <div class="card">

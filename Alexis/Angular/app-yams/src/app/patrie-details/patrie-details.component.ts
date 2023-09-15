@@ -36,24 +36,24 @@ export class PatrieDetailsComponent implements OnInit
     let _list = _tab != null ? _tab : this.getIngredient(this.pastrie.id);
     if(!_list) return;
     if(_desc == "Asc >>")
-      _list.sort();
-    else _list.sort(function(_a:string,_b:string)
-    {
-      return _b.localeCompare(_a);
-    })
+      _list.sort(function(_a:string,_b:string)
+      {
+        return _b.localeCompare(_a);
+      })
+    else _list.sort();
   }
 
   setDescriptionButton()
   {
     if(this.mDescButton == "Desc >>") 
     {
-      this.mDescButton = "Asc >>";
       this.sort(this.mDescButton);
+      this.mDescButton = "Asc >>";
     }
     else 
     {
-      this.mDescButton = "Desc >>";
       this.sort(this.mDescButton);
+      this.mDescButton = "Desc >>";
     }
   }
 
