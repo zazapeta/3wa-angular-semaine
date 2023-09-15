@@ -3,6 +3,7 @@
     <div class="card-body detail">
         <h5 class="card-title">{{pastrie.ref}}</h5>
         <p class="card-text">Nom : {{pastrie.name}}</p>
+        <button class="btn btn-primary desc" (click)="preference(pastrie.id)">Choice</button>
         <button class="btn btn-primary desc" (click)="modifyIngredientsOrder(true)" [hidden]="trier">Desc
             >></button>
         <button class="btn btn-primary asc" (click)="modifyIngredientsOrder(false)" [hidden]="!trier">Asc

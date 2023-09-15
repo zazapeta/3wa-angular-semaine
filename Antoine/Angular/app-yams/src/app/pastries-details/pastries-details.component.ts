@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { INGREDIENTS_LISTS } from '../mock-pastries';
 import { Pastrie } from '../pastrie';
 import { List } from '../list';
@@ -11,6 +11,7 @@ import { List } from '../list';
 })
 export class PastriesDetailsComponent {
   @Input() pastrie!: Pastrie;
+  @Output() changePreference: EventEmitter<string> = new EventEmitter();
   lists: List[] = INGREDIENTS_LISTS;
   trier: boolean = false;
 
@@ -20,6 +21,9 @@ export class PastriesDetailsComponent {
   }
   ngOnChanges() {
     this.trier = false;
+  }
+  preference(id: string) {
+    this.changePreference.emit(id); // émettre l'id de la pâtisserie vers le parent
   }
 
   modifyIngredientsOrder(ascending: boolean) {

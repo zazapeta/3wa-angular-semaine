@@ -19,7 +19,31 @@ export class PastriesComponent {
     );
   }
 
-  constructor() { }
+  constructor() {
+    const storedPastries = localStorage.getItem('pastries');
+    if (storedPastries) {
+      this.pastries = JSON.parse(storedPastries);
+    }
+  }
+
+
+  changeParentPreference($event: string) {
+    var favpastrie = this.pastries.filter(pastrie => pastrie.choise === true)
+    const pastrie = this.pastries.find(function (p) {
+      return p.id === $event
+    })
+    if (pastrie!.choise == true && favpastrie.length >= 3) {
+      pastrie!.choise = false
+    }
+    if (favpastrie.length < 3) {
+      if (pastrie!.choise == false) {
+        pastrie!.choise = true
+      } else {
+        pastrie!.choise = false
+      }
+    }
+    localStorage.setItem('pastries', JSON.stringify(this.pastries));
+  }
 
   ngOnInit(): void {
   }

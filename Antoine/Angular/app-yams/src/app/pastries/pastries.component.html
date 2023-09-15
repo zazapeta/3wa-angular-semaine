@@ -2,7 +2,8 @@
     <div class="col-md-4">
         <router-outlet> </router-outlet>
         <!-- PastrieDetails communication parent vers enfant -->
-        <app-pastries-details *ngIf="selectedPastrie" [pastrie]="selectedPastrie"></app-pastries-details>
+        <app-pastries-details *ngIf="selectedPastrie" [pastrie]="selectedPastrie"
+            (changePreference)="changeParentPreference($event)"></app-pastries-details>
     </div>
     <div class="col-md-8">
         <h1>{{ titlePage }}</h1>
@@ -13,10 +14,10 @@
                         <h6 class="card-title">{{ pastrie.ref }}</h6>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-subtitle mb-2 text-body-secondary">{{ pastrie.name }}</h5>
+                        <h5 class="card-subtitle mb-2 text-body-secondary">{{ pastrie.name }} <span
+                                *ngIf="pastrie.choise == true" class="badge text-bg-warning">FAVORITE</span></h5>
                         <a routerLink="/pastries/{{ pastrie.id }}/read" class="btn btn-primary">Sélectionner</a>
-                        <p class="card-text">{{ pastrie.description }}
-                        </p>
+                        <p class="card-text">{{ pastrie.description }}</p>
                         <ul *ngIf="pastrie.tags" class="list-inline">
                             <li class="list-inline-item" *ngFor="let tag of pastrie.tags">
                                 <span class="badge text" [style.backgroundColor]="tag | pastryTagColor">{{tag}}</span>

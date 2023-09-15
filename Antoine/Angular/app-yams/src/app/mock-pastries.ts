@@ -16,6 +16,7 @@ export const PASTRIES: Pastrie[] = [
             "dessert"
         ],
         "like": "Much",
+        "choise": false
     },
     {
         "id": "2",
@@ -32,6 +33,7 @@ export const PASTRIES: Pastrie[] = [
             "chocolat"
         ],
         "like": "Much",
+        "choise": false
     },
     {
         "id": "3",
@@ -48,6 +50,7 @@ export const PASTRIES: Pastrie[] = [
             "chocolat",
             "framboises"
         ],
+        "choise": false
     },
     {
         "id": "4",
@@ -62,6 +65,7 @@ export const PASTRIES: Pastrie[] = [
             "yummy"
         ],
         "like": "rather",
+        "choise": false
     },
     {
         "id": "5",
@@ -72,6 +76,7 @@ export const PASTRIES: Pastrie[] = [
         "quantity": 2,
         "order": 5,
         "like": "Rather",
+        "choise": false
     },
     {
         "id": "6",
@@ -87,6 +92,7 @@ export const PASTRIES: Pastrie[] = [
             "chocolat"
         ],
         "like": "Much",
+        "choise": false
     },
     {
         "id": "7",
@@ -104,6 +110,7 @@ export const PASTRIES: Pastrie[] = [
             "fruits"
         ],
         "like": "Much",
+        "choise": false
     },
     {
         "id": "8",
@@ -119,6 +126,7 @@ export const PASTRIES: Pastrie[] = [
             "fruits"
         ],
         "like": "Much",
+        "choise": false
     },
 ];
 
