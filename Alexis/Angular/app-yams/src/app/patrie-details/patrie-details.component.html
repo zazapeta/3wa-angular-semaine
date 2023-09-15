@@ -2,8 +2,10 @@
     <img src="{{pastrie.url}}" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{pastrie.ref}}</h5>
+        <span *ngIf="pastrie.choice" class="badge text-bg-warning">Favori</span>
         <p class="card-text">Nom : {{pastrie.name}}</p>
         <button class="btn btn-primary" (click)="setDescriptionButton()">{{mDescButton}}</button>
+        <button type="button" class="btn btn-primary" (click)="preference(pastrie.id)">Favori</button>
         <a routerLink="/pastries" class="btn btn-danger" >Close</a>
     </div>
 </div>

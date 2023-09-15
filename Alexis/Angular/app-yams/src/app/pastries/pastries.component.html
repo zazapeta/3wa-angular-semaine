@@ -1,19 +1,47 @@
 <div class="row">
     <div class="col-md-4">
-            <app-pastrie-details *ngIf="selectedPastrie" [pastrie]="selectedPastrie"></app-pastrie-details>
+            <app-pastrie-details *ngIf="selectedPastrie" [pastrie]="selectedPastrie" (changePreference)="changeParentPreference($event)"></app-pastrie-details>
     </div>
     <div class="col-md-8">
         <h1>{{titlePage}}</h1>
         <ul  *ngIf="patries" class="list-inline">
             <li class="list-inline-item" *ngFor="let pastrie of patries">
-                <div appBorderCard="purple" class="card">
+                <div *ngIf="pastrie.choice == true" appBorderCard="purple" class="card">
                     <div class="card-header">
                         <h5>{{pastrie.ref}}</h5>
+                        <span *ngIf="pastrie.choice" class="badge text-bg-warning">Favori</span>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{pastrie.name}}</h5>
                         <a routerLink="/pastries/{{pastrie.id}}/read" class="btn btn-primary" >Sélectionner</a>
-                        <!--<button type="button" class="btn btn-primary" (click)="onSelect(pastrie)">Sélectionner</button>-->
+                        <p class="card-text">{{pastrie.description}}</p>
+                        <div class="card-footer text-body-secondary">
+                            <span
+                              *ngFor="let tag of pastrie?.tags"
+                              class="badge rounded-pill"
+                              [style.backgroundColor]="tag | pastryTagColor"
+                              >{{ tag }}</span
+                            >
+                          </div>
+                        <p>
+                            <img class="icon" src="../../assets/svg/si-glyph-heart.svg"/>
+                            <span> {{pastrie.like}} </span>
+                            <img class="icon" src="../../assets/svg/si-glyph-triangle-double-arrow-right.svg"/>
+                            <small> {{pastrie.quantity}} unité disponible</small>
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="list-inline-item" *ngFor="let pastrie of patries">
+                <div *ngIf="pastrie.choice == false" appBorderCard="purple" class="card">
+                    <div class="card-header">
+                        <h5>{{pastrie.ref}}</h5>
+                        <span *ngIf="pastrie.choice" class="badge text-bg-warning">Favori</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{pastrie.name}}</h5>
+                        <a routerLink="/pastries/{{pastrie.id}}/read" class="btn btn-primary" >Sélectionner</a>
                         <p class="card-text">{{pastrie.description}}</p>
                         <div class="card-footer text-body-secondary">
                             <span

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Pastrie } from '../pastrie';
-import { PASTRIES } from '../mock-pastries';
+import { PASTRIES, Max } from '../mock-pastries';
 
 @Component({
   selector: 'app-pastries',
@@ -19,7 +19,6 @@ export class PastriesComponent
   @Input()
   set pastrieId(selectedPastrieId:string)
   {
-    console.log("la");
     this.selectedPastrie = this.patries.find(({id}) => selectedPastrieId === id);
   }
 
@@ -27,5 +26,23 @@ export class PastriesComponent
   {
     console.log(_pastrie);
     this.selectedPastrie = _pastrie;
+  }
+
+  changeParentPreference(_event:any)
+  {
+    const _value = this.patries.find(p => p.id == _event)
+    const _fav = this.patries.filter(p => p.choice == true);
+    if(_value)
+    {
+      if(_fav.length < Max)
+      {
+        console.log(_fav.length)
+        _value.choice = !_value?.choice;
+      }
+      else if(_value.choice)
+      {
+        _value.choice = !_value?.choice;
+      }
+    }
   }
 }

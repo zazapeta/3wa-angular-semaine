@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,EventEmitter,Output } from '@angular/core';
 import { Pastrie } from '../pastrie';
 import { INGREDIENTS_LISTS } from "../mock-pastries"
 
@@ -9,6 +9,7 @@ import { INGREDIENTS_LISTS } from "../mock-pastries"
 })
 export class PatrieDetailsComponent implements OnInit
 {
+  @Output() changePreference: EventEmitter<string> = new EventEmitter();
   @Input() pastrie!:Pastrie;
   mDescButton:string = "Desc >>";
   constructor() {}
@@ -57,4 +58,7 @@ export class PatrieDetailsComponent implements OnInit
     }
   }
 
+  preference(id: string) {
+    this.changePreference.emit(id); // émettre l'id de la pâtisserie vers le parent
+}
 }
