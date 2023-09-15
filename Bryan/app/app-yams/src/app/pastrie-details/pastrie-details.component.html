@@ -1,1 +1,18 @@
-<p>pastrie-details works!</p>
+<div *ngIf="pastrie" class="card">
+    <img src="{{ pastrie.url }}" class="card-img-top" alt="{{ pastrie.name }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ pastrie.name }}</h5>
+      <p class="card-text">{{ pastrie.description }}</p>
+      <div [ngSwitch]="order">
+        <a *ngSwitchCase="'desc'" [queryParams]="{ order: 'asc' }" routerLink="./"  class="btn btn-primary">Asc >>></a>
+        <a *ngSwitchCase="'asc'" [queryParams]="{ order: 'desc' }" routerLink="./"  class="btn btn-secondary" >Desc >>></a>
+        <a *ngSwitchDefault [queryParams]="{ order: 'desc' }" routerLink="./"  class="btn btn-danger" >Desc >>></a>
+      </div>
+      <a routerLink="/pastries"  class="btn btn-primary">Close X</a>
+    </div>
+    <div class="card-footer">
+      <ul class="list-group">
+        <li *ngFor="let ingredient of ingredients" class="list-group-item">{{ ingredient }}</li>
+      </ul>
+    </div>
+  </div>

@@ -5,9 +5,9 @@ export class Pastrie {
     description: string;
     quantity: number;
     order: number;
-    url: string|undefined;
-    tags: string[]|undefined;
-    like: string|undefined;
+    url?: string;
+    tags?: string[];
+    like?: string;
 
     constructor(
         ref: string,
@@ -29,4 +29,9 @@ export class Pastrie {
         this.like = like;
     }
 
+}
+
+export class List {
+    id!: string;
+    list!: string[];
 }
