@@ -1,6 +1,8 @@
 import { Component, OnInit,Input,EventEmitter,Output } from '@angular/core';
 import { Pastrie } from '../pastrie';
 import { INGREDIENTS_LISTS } from "../mock-pastries"
+import { PastrieService } from '../pastrie.service';
+
 
 @Component({
   selector: 'app-pastrie-details',
@@ -12,7 +14,7 @@ export class PatrieDetailsComponent implements OnInit
   @Output() changePreference: EventEmitter<string> = new EventEmitter();
   @Input() pastrie!:Pastrie;
   mDescButton:string = "Desc >>";
-  constructor() {}
+  constructor(private _service:PastrieService) {}
 
   ngOnInit()
   {
@@ -21,12 +23,12 @@ export class PatrieDetailsComponent implements OnInit
 
   getIngredient(_id:string)
   {
-    const _index = INGREDIENTS_LISTS.find(_index => _index.id == _id )
+    const _index = this._service.getPastrieIngredientsList(this.pastrie.id);
 
     if(_index)
     {
-      this.sort(this.mDescButton,_index.list);
-      return _index.list;
+      this.sort(this.mDescButton,_index);
+      return _index;
     }
     else return null;
   }
@@ -34,7 +36,7 @@ export class PatrieDetailsComponent implements OnInit
   sort(_desc:string,_tab?:string[])
   {
     if(!this.pastrie) return;
-    let _list = _tab != null ? _tab : this.getIngredient(this.pastrie.id);
+    let _list = _tab != null ? _tab : this._service.getPastrieIngredientsList(this.pastrie.id);
     if(!_list) return;
     if(_desc == "Asc >>")
       _list.sort(function(_a:string,_b:string)

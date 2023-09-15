@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Pastrie } from '../pastrie';
 import { PASTRIES, Max } from '../mock-pastries';
+import { PastrieService } from '../pastrie.service';
 
 @Component({
   selector: 'app-pastries',
@@ -10,10 +11,13 @@ import { PASTRIES, Max } from '../mock-pastries';
 export class PastriesComponent 
 {
   titlePage:string ="Page Principale : liste des pâtisseries à gagner";
-  patries:Pastrie[] = PASTRIES;
+  patries:Pastrie[] = [];
   selectedPastrie?: Pastrie;
 
-  constructor(){}
+  constructor(private _service:PastrieService)
+  {
+    this.patries = _service.getPatries();
+  }
   ngOnInit(){}
 
   @Input()
