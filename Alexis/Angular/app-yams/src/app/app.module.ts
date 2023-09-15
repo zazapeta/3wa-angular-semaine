@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PastriesComponent } from './pastries/pastries.component';
 import { PatrieDetailsComponent } from './patrie-details/patrie-details.component';
 import { PastryTagColorPipe } from './pastry-tag-color.pipe';
+import { BorderCardDirective } from './border-card.directive';
 
 
 const appRoutes: Routes = [
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     AppComponent,
     PastriesComponent,
     PatrieDetailsComponent,
-    PastryTagColorPipe
+    PastryTagColorPipe,
+    BorderCardDirective
   ],
   imports: [
     BrowserModule,
